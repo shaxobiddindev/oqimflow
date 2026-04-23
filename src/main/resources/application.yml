@@ -1,0 +1,52 @@
+server:
+  servlet:
+    context-path: /api
+  port: 8080
+
+spring:
+  application:
+    name: transport-monitoring
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/transport_db
+    username: postgres
+    password: Uralov2005
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    time-zone: Asia/Tashkent
+
+app:
+  jwt:
+    secret: "404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970"
+    expiration: 86400000       # 24 soat
+    refresh-expiration: 604800000  # 7 kun
+
+  scheduler:
+    gps-interval: 5000         # ms - GPS simulyatsiya intervali
+    passenger-interval: 10000  # ms - yo'lovchi soni yangilash
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+
+logging:
+  level:
+    uz.transport: DEBUG
+    org.springframework.web.socket: INFO
