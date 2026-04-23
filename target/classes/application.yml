@@ -8,9 +8,10 @@ spring:
     name: transport-monitoring
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/transport_db
-    username: postgres
-    password: Uralov2005
+    # Supabase Connection Pooler (Transaction Mode uchun &prepareThreshold=0 shart)
+    url: jdbc:postgresql://aws-1-ap-southeast-1.pooler.supabase.com:6543/postgres?sslmode=require&prepareThreshold=0
+    username: postgres.luwtojhoziedudroeueu
+    password: WJ8H?Qd6pm&qDHi
     driver-class-name: org.postgresql.Driver
 
   jpa:
